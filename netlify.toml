@@ -1,0 +1,19 @@
+# Netlify configuration file
+
+[build]
+  # This command will be run to build your site
+  command = "npm run build"
+  
+  # The directory that contains your built site
+  publish = "dist"
+
+[build.environment]
+  # Set the Node.js version to match your development environment
+  NODE_VERSION = "20"
+
+[[redirects]]
+  # This rule ensures that all paths are redirected to index.html,
+  # which is necessary for single-page applications (SPAs) like React Router.
+  from = "/*"
+  to = "/index.html"
+  status = 200
