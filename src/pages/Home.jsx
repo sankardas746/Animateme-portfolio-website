@@ -8,6 +8,7 @@ import { Helmet } from 'react-helmet';
 import AutoCarousel from '@/components/AutoCarousel';
 import AnimatedText from '@/components/AnimatedText';
 import AnimatedCounter from '@/components/AnimatedCounter';
+import HomeAboutSection from '@/components/HomeAboutSection';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
@@ -196,6 +197,10 @@ const Home = () => {
             ))}
           </Swiper>
         </section>
+
+        {/* About Section */}
+        <HomeAboutSection />
+
 
         {/* Our Services Section */}
         <motion.section 
