@@ -69,6 +69,7 @@ const AppContent = () => {
             <Route path="/blog/:postId" element={<BlogPost />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/quote" element={<QuoteCalculator />} />
+            <Route path="/about" element={<AboutUs />} />
             <Route path="/disclaimer" element={<Disclaimer />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/update-password" element={<UpdatePassword />} />
