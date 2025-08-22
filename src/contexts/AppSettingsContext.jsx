@@ -20,6 +20,8 @@ const defaultSettings = {
   quoteAnimationStyles: [],
   homeHeroSlides: [],
   homeStats: [],
+  homeAboutSection: {},
+  homeAboutTabs: [],
 };
 
 export const AppSettingsProvider = ({ children }) => {
@@ -55,10 +57,12 @@ export const AppSettingsProvider = ({ children }) => {
         'quote_animation_styles',
         'home_hero_slides',
         'home_stats',
+        'home_about_section',
+        'home_about_tabs'
       ];
 
       const promises = tableNames.map(tableName => {
-        if (tableName.startsWith('page_') || tableName === 'general_settings') {
+        if (tableName.startsWith('page_') || tableName === 'general_settings' || tableName === 'home_about_section') {
           return supabase.from(tableName).select('*').limit(1).single();
         } else if (tableName === 'blog_posts') {
             return supabase.from('blog_posts').select('*, blog_categories(name)').order('date', { ascending: false });
@@ -66,8 +70,8 @@ export const AppSettingsProvider = ({ children }) => {
             return supabase.from('portfolio_items').select('*, portfolio_categories(name)').order('date', { ascending: false });
         } else if (tableName === 'portfolio_assets') {
             return supabase.from('portfolio_assets').select('*, portfolio_categories(name)').order('created_at', { ascending: false });
-        } else if (tableName === 'home_hero_slides') {
-            return supabase.from('home_hero_slides').select('*').order('sort_order', { ascending: true });
+        } else if (tableName === 'home_hero_slides' || tableName === 'home_about_tabs') {
+            return supabase.from(tableName).select('*').order('sort_order', { ascending: true });
         } else if (tableName === 'home_stats') {
             return supabase.from('home_stats').select('*').order('sort_order', { ascending: true });
         }
@@ -158,6 +162,12 @@ export const AppSettingsProvider = ({ children }) => {
             break;
           case 'home_stats':
             newSettings.homeStats = data || [];
+            break;
+          case 'home_about_section':
+            newSettings.homeAboutSection = data || {};
+            break;
+          case 'home_about_tabs':
+            newSettings.homeAboutTabs = data || [];
             break;
           default:
             break;
