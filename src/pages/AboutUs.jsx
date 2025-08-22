@@ -28,10 +28,10 @@ const AboutUs = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative py-20 md:py-32 bg-gradient-to-r from-purple-600 to-yellow-400 text-white"
+          className="relative py-20 md:py-32 bg-gradient-to-r from-purple-700 to-yellow-400 text-white"
         >
           <div className="absolute inset-0 bg-black opacity-30"></div>
-          <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.h1 
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -53,7 +53,7 @@ const AboutUs = () => {
 
         <section className="py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="lg:grid lg:grid-cols-1"> {/* Changed to single column */}
+            <div className="lg:grid lg:grid-cols-1">
               <motion.div 
                 initial={{ x: -100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
