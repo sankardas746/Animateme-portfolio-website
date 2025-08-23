@@ -33,6 +33,7 @@ const PortfolioManager = () => {
       title: 'New Project',
       sub_category_id: defaultCategory ? defaultCategory.id : null,
       image: '',
+      image_url: '',
       video_url: '',
       description: 'Project description',
       client: 'Client Name',
@@ -73,6 +74,7 @@ const PortfolioManager = () => {
           title: editingItem.title,
           image_url: editingItem.image_url,
           sub_category_id: editingItem.sub_category_id,
+          sub_category_id_text: editingItem.sub_category_id || 'default'
         };
         if (editingItem.id) {
           response = await supabase.from('portfolio_assets').update(itemToSave).eq('id', editingItem.id);
